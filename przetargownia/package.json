@@ -1,0 +1,26 @@
+{
+  "name": "przetargownia",
+  "version": "1.0.0",
+  "description": "Aplikacja zaliczeniowa na PAI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "\"Aplikacje",
+    "Internetowe\"",
+    "Internet",
+    "Aplikacja",
+    "Przetarg",
+    "Oferta",
+    "Studia",
+    "UJ",
+    "FAIS",
+    "WFAIS"
+  ],
+  "author": "Wookash Walancik",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
