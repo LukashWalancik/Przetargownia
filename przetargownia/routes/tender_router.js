@@ -22,12 +22,13 @@ async function checkAndUpdateTenders() {
 
 // Lista przetargów
 router.get('/', async (req, res) => {
-    try {
+  const success = req.query.success || 0;  
+  try {
       await checkAndUpdateTenders();
       const tenders = await Tender.findAll({
         where: { finished: false }
       });
-      res.render('tenders', { title: 'Przetargi', tenders });
+      res.render('tenders', { title: 'Przetargi', tenders, success });
     } catch (err) {
       console.error(err);
       res.status(500).send('Błąd serwera.');

@@ -12,6 +12,16 @@
     <a href="/"><h1>Przetargownia</h1></a>
   </header>
 
+  <% if (success == 1) { %>
+    <div class="alert alert-success">
+      Oferta została złożona pomyślnie!
+    </div>
+  <% } else if (success == -1) { %>
+    <div class="alert alert-danger">
+      Wystąpił błąd podczas składania oferty.
+    </div>
+  <% } %>
+
   <main>
     <% if (tenders.length > 0) { %>
       <table>
