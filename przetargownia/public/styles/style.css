@@ -104,6 +104,53 @@
       }
   } */
   
+
+  main {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 90%;
+    max-width: 1200px;
+    background-color: var(--md-sys-color-surface);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  th, td {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  }
+  
+  th {
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+  
+  tr:hover {
+    background-color: var(--md-sys-color-surface-container-low);
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  td a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+
+
+
 body {
     font-family: Arial, sans-serif;
     background-color: var(--md-sys-color-background);
@@ -112,8 +159,8 @@ body {
     padding: 0;
   }
   header {
-    background-color: var(--md-sys-color-secondary);
-    color: var(--md-sys-color-on-secondary);
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
     padding: 20px;
     text-align: center;
   }
@@ -128,6 +175,7 @@ body {
     background-color: var(--md-sys-color-secondary-container);
     color: var(--md-sys-color-on-secondary-container);
     padding: 20px;
+    padding-bottom: 50px;
     width: 400px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -166,4 +214,24 @@ body {
     text-align: center;
     background-color: var(--md-sys-color-secondary);
     color: var(--md-sys-color-on-secondary);
+  }
+
+  header a {
+    color: var(--md-sys-color-on-primary);
+    text-decoration: none;
+  }
+
+  header a:visited {
+    color: var(--md-sys-color-on-primary);
+    text-decoration: none;
+  }
+
+  .tender-details {
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    padding: 20px;
+    /* text-align: center; */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    /* transition: transform 0.6s; */
   }

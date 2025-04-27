@@ -8,7 +8,7 @@ app.set('view engine', 'ejs');
 app.use('/', mainRouter);
 
 const tenderRouter = require('./routes/tender_router');
-app.use('/przetargi', tenderRouter);
+app.use('/tenders', tenderRouter);
 
 
 const sequelize = require('./models/index');

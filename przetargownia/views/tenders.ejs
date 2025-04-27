@@ -9,22 +9,33 @@
 </head>
 <body>
   <header>
-    <h1>Przetargownia</h1>
+    <a href="/"><h1>Przetargownia</h1></a>
   </header>
 
   <main>
     <% if (tenders.length > 0) { %>
-      <ul>
+      <table>
+        <tr>
+          <th scope="col">Numer</th>
+          <th scope="col">Nazwa Przetargu</th>
+          <th scope="col">Instytucja Zgłaszająca</th>
+          <th scope="col">Data Zakończenia</th>
+          <th scope="col">Godzina Zakończnia</th>
+          <th scope="col">Data Rozpoczęcia</th>
+          <th scope="col">Godzina Rozpoczęcia</th>
+        </tr>
         <% tenders.forEach(tender => { %>
-          <li>
-            <h2><%= tender.title %></h2>
-            <p><%= tender.description %></p>
-            <small>Termin zakończenia: <%= tender.deadline.toDateString() %></small>
-            <p>Status: <%= tender.finished %></p>
-            <p>Instytucja: <%= tender.institution %></p>
-          </li>
+          <tr onclick="window.location.href='/tenders/<%= tender.id %>'">
+            <td><%= tender.id %></td>
+            <td><%= tender.title %></td>
+            <td><%= tender.institution %></td>
+            <td><%= tender.deadline.toLocaleDateString('pl-PL') %></td>
+            <td><%= tender.deadline.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' }) %></td>
+            <td><%= tender.start_date.toLocaleDateString('pl-PL') %></td>
+            <td><%= tender.start_date.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' }) %></td>
+          </tr>
         <% }) %>
-      </ul>
+      </table>
     <% } else { %>
       <p>Brak dostępnych przetargów.</p>
     <% } %>

@@ -34,4 +34,18 @@ router.get('/', async (req, res) => {
     }
   });
 
+router.get('/:id', async (req, res) => {
+  try {
+    const tender = await Tender.findByPk(req.params.id);
+    if (!tender) {
+      return res.status(404).send('Nie znaleziono przetargu.');
+    }
+    res.render('tender_details', { title: tender.title, tender });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Błąd serwera.');
+  }
+});
+
+
 module.exports = router;
