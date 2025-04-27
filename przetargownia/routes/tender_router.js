@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { Tender } = require('../models/index');
+const { Offer } = require('../models/index'); 
 
 async function checkAndUpdateTenders() {
     const { Op } = require('sequelize');
@@ -59,19 +60,30 @@ router.get('/', async (req, res) => {
     });
   
 
-router.get('/:id', async (req, res) => {
-  try {
-    const tender = await Tender.findByPk(req.params.id);
-    if (!tender) {
-      return res.status(404).send('Nie znaleziono przetargu.');
-    }
-    res.render('tender_details', { title: tender.title, tender });
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Błąd serwera.');
-  }
-});
-
+    router.get('/:id', async (req, res) => {
+      try {
+        const tender = await Tender.findByPk(req.params.id);
+        if (!tender) {
+          return res.status(404).send('Nie znaleziono przetargu.');
+        }
+    
+        
+    
+        if (tender.finished) {
+          let offers = [];
+          offers = await Offer.findAll({
+            where: { tenderId: tender.id },
+          });
+          res.render('finished_tender_details', {tender, offers})
+        }
+        else {
+        res.render('tender_details', { title: tender.title, tender});
+        }
+      } catch (err) {
+        console.error(err);
+        res.status(500).send('Błąd serwera.');
+      }
+    });
 
 
 router.post('/create', async (req, res) => {
