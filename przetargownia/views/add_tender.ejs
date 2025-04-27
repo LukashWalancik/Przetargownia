@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Przetargownia</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="/styles/add_tender.css">
+</head>
+<body>
+
+  <header class="header">
+    <a href="/"><h1>Przetargownia</h1></a>
+  </header>
+
+  <main>
+    <section>
+      <h2>Stwórz nowy przetarg</h2>
+      <hr>
+
+      <form action="/tenders/create" method="POST">
+
+        <div>
+          <label for="title">Tytuł przetargu:</label>
+          <input type="text" name="title" id="title" required>
+        </div>
+
+        <div>
+          <label for="description">Opis przetargu:</label>
+          <textarea name="description" id="description" required></textarea>
+        </div>
+
+        <div>
+          <label for="institution">Nazwa Twojej instytucji:</label>
+          <input type="text" name="institution" id="institution" required>
+        </div>
+
+        <div>
+          <label for="deadline">Data zakończenia przetargu:</label>
+          <input type="date" name="deadline" id="deadline" min="<%= current_date %>" required>
+        </div>
+
+        <div>
+          <label for="deadline_hour">Godzina zakończenia przetargu:</label>
+          <input type="time" name="deadline_hour" id="deadline_hour" required>
+        </div>
+
+        <div>
+          <label for="budget">Budżet przetargu:</label>
+          <input type="number" name="budget" id="budget" required>
+        </div>
+
+        <button type="submit">Stwórz przetarg</button>
+
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Autor: <strong>Łukasz Walancik</strong> | <a href="https://github.com/LukashWalancik">GitHub</a></p>
+  </footer>
+
+</body>
+</html>

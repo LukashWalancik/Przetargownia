@@ -34,6 +34,16 @@ router.get('/', async (req, res) => {
     }
   });
 
+  router.get('/new', async (req, res) => {
+    const current_date = new Date().toISOString().split('T')[0];
+    try {
+      res.render('add_tender', {current_date});
+    } catch (err) {
+      console.error(err);
+      res.status(500).send("Błąd serwera.");
+    }
+  });
+
 router.get('/:id', async (req, res) => {
   try {
     const tender = await Tender.findByPk(req.params.id);
@@ -46,6 +56,31 @@ router.get('/:id', async (req, res) => {
     res.status(500).send('Błąd serwera.');
   }
 });
+
+
+router.post('/create', async (req, res) => {
+  try {
+      const { title, description, institution, deadline, deadline_hour, budget } = req.body;
+    const deadlineString = `${deadline}T${deadline_hour}:00`
+    const deadline_date = new Date(deadlineString);
+      await Tender.create({
+        title: title,
+        description: description,
+        institution: institution,
+        start_date: new Date(),
+        deadline: deadline_date,
+        budget: budget,
+      });
+
+      res.redirect('/tenders/?success=1');
+  } catch (err) {
+      console.error(err);
+      res.redirect('/tenders/?success=-1')
+  }
+});
+
+
+
 
 
 module.exports = router;

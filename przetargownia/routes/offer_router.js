@@ -26,14 +26,12 @@ router.post('/create', async (req, res) => {
           name,
           offer_value,
           submission_date,
-          tenderId // Powiązanie oferty z przetargiem
+          tenderId
       });
 
-      // Po zapisaniu oferty, przekierowujemy np. do listy ofert
       res.redirect('/?success=1');
   } catch (err) {
       console.error(err);
-      // res.status(500).send('Błąd serwera.');
       res.redirect('/?success=-1')
   }
 });
