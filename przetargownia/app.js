@@ -3,6 +3,7 @@ const app = express()
 const port = 3000
 
 app.use(express.static('public'));
+const { sequelize } = require('./models/index');
 const mainRouter = require('./routes/main_router');
 app.set('view engine', 'ejs');
 app.use('/', mainRouter);
@@ -10,9 +11,12 @@ app.use('/', mainRouter);
 const tenderRouter = require('./routes/tender_router');
 app.use('/tenders', tenderRouter);
 
+const offerRouter = require('./routes/offer_router');
+app.use('/offers', offerRouter)
 
-const sequelize = require('./models/index');
-const Tender = require('./models/tender_model');
+
+
+const { Tender } = require('./models/index');
 
 // Synchronizacja bazy danych
 sequelize.sync({ force: false })
@@ -23,11 +27,14 @@ sequelize.sync({ force: false })
     console.error('Błąd połączenia z bazą danych:', err);
   });
 
+
+
+
+
+
   sequelize.sync({ force: false })
   .then(async () => {
     console.log('Połączono z bazą danych i zsynchronizowano modele.');
-    
-    // Dodaj przykładowy przetarg, jeśli baza jest pusta
     const count = await Tender.count();
     if (count === 0) {
       await Tender.create({

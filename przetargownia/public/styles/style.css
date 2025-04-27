@@ -106,8 +106,8 @@
   
   main {
     display: flex;
-    flex-direction: column; /* <-- DODAJ TO */
-    align-items: center;     /* <-- Żeby wycentrować dzieci w poziomie */
+    flex-direction: column;
+    align-items: center;
     margin-top: 2rem;
   }
   

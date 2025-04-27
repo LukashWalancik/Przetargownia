@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Tender = require('../models/tender_model');
+const { Tender } = require('../models/index');
 
 async function checkAndUpdateTenders() {
     const { Op } = require('sequelize');
@@ -9,7 +9,7 @@ async function checkAndUpdateTenders() {
     const tendersToFinish = await Tender.findAll({
       where: {
         finished: false,
-        deadline: { [Op.lte]: now }  // deadline już minął lub jest teraz
+        deadline: { [Op.lte]: now }
       }
     });
   
@@ -23,7 +23,7 @@ async function checkAndUpdateTenders() {
 // Lista przetargów
 router.get('/', async (req, res) => {
     try {
-      await checkAndUpdateTenders();  // sprawdzamy i aktualizujemy
+      await checkAndUpdateTenders();
       const tenders = await Tender.findAll({
         where: { finished: false }
       });

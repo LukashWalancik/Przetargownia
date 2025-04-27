@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Składaj ofertę na przetarg: <%= tender.title %></h1>
+<p><strong>Opis:</strong> <%= tender.description %></p>
+<p><strong>Budżet:</strong> <%= tender.budget %> PLN</p>
+<p><strong>Instytucja:</strong> <%= tender.institution %></p>
+
+<!-- Formularz składania oferty -->
+<form action="/offers/create" method="POST">
+    <input type="hidden" name="tenderId" value="<%= tender.id %>">
+    
+    <div>
+        <label for="name">Nazwa oferty:</label>
+        <input type="text" name="name" id="name" required>
+    </div>
+
+    <div>
+        <label for="offer_value">Wartość oferty:</label>
+        <input type="number" name="offer_value" id="offer_value" required>
+    </div>
+
+    <div>
+        <label for="submission_date">Data złożenia:</label>
+        <input type="date" name="submission_date" id="submission_date" required>
+    </div>
+
+    <button type="submit">Złóż ofertę</button>
+</form>
+</body>
+</html>
