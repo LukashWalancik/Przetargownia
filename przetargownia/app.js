@@ -5,6 +5,7 @@ const port = 3000
 app.use(express.static('public'));
 const { sequelize } = require('./models/index');
 const mainRouter = require('./routes/main_router');
+app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.use('/', mainRouter);
 
