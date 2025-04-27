@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Przetargownia</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+  <header>
+    <h1>Przetargownia</h1>
+  </header>
+
+  <main>
+    <% if (tenders.length > 0) { %>
+      <ul>
+        <% tenders.forEach(tender => { %>
+          <li>
+            <h2><%= tender.title %></h2>
+            <p><%= tender.description %></p>
+            <small>Termin zakończenia: <%= tender.deadline.toDateString() %></small>
+            <p>Status: <%= tender.finished %></p>
+            <p>Instytucja: <%= tender.institution %></p>
+          </li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <p>Brak dostępnych przetargów.</p>
+    <% } %>
+  </main>
+  <footer>
+    <p>Autor: <strong>Łukasz Walancik</strong> | <a href="https://github.com/LukashWalancik">GitHub</a></p>
+  </footer>
+</body>
+</html>

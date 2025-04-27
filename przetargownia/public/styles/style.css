@@ -1,0 +1,169 @@
+:root {
+    --md-sys-color-primary: rgb(43 99 139);
+    --md-sys-color-surface-tint: rgb(43 99 139);
+    --md-sys-color-on-primary: rgb(255 255 255);
+    --md-sys-color-primary-container: rgb(204 229 255);
+    --md-sys-color-on-primary-container: rgb(4 75 113);
+    --md-sys-color-secondary: rgb(80 96 111);
+    --md-sys-color-on-secondary: rgb(255 255 255);
+    --md-sys-color-secondary-container: rgb(212 228 246);
+    --md-sys-color-on-secondary-container: rgb(57 72 86);
+    --md-sys-color-tertiary: rgb(102 88 123);
+    --md-sys-color-on-tertiary: rgb(255 255 255);
+    --md-sys-color-tertiary-container: rgb(236 220 255);
+    --md-sys-color-on-tertiary-container: rgb(78 65 98);
+    --md-sys-color-error: rgb(186 26 26);
+    --md-sys-color-on-error: rgb(255 255 255);
+    --md-sys-color-error-container: rgb(255 218 214);
+    --md-sys-color-on-error-container: rgb(147 0 10);
+    --md-sys-color-background: rgb(247 249 255);
+    --md-sys-color-on-background: rgb(24 28 32);
+    --md-sys-color-surface: rgb(247 249 255);
+    --md-sys-color-on-surface: rgb(24 28 32);
+    --md-sys-color-surface-variant: rgb(222 227 235);
+    --md-sys-color-on-surface-variant: rgb(66 71 78);
+    --md-sys-color-outline: rgb(114 120 126);
+    --md-sys-color-outline-variant: rgb(194 199 206);
+    --md-sys-color-shadow: rgb(0 0 0);
+    --md-sys-color-scrim: rgb(0 0 0);
+    --md-sys-color-inverse-surface: rgb(45 49 53);
+    --md-sys-color-inverse-on-surface: rgb(238 241 246);
+    --md-sys-color-inverse-primary: rgb(152 204 249);
+    --md-sys-color-primary-fixed: rgb(204 229 255);
+    --md-sys-color-on-primary-fixed: rgb(0 30 49);
+    --md-sys-color-primary-fixed-dim: rgb(152 204 249);
+    --md-sys-color-on-primary-fixed-variant: rgb(4 75 113);
+    --md-sys-color-secondary-fixed: rgb(212 228 246);
+    --md-sys-color-on-secondary-fixed: rgb(13 29 42);
+    --md-sys-color-secondary-fixed-dim: rgb(184 200 217);
+    --md-sys-color-on-secondary-fixed-variant: rgb(57 72 86);
+    --md-sys-color-tertiary-fixed: rgb(236 220 255);
+    --md-sys-color-on-tertiary-fixed: rgb(33 21 52);
+    --md-sys-color-tertiary-fixed-dim: rgb(209 191 231);
+    --md-sys-color-on-tertiary-fixed-variant: rgb(78 65 98);
+    --md-sys-color-surface-dim: rgb(215 218 223);
+    --md-sys-color-surface-bright: rgb(247 249 255);
+    --md-sys-color-surface-container-lowest: rgb(255 255 255);
+    --md-sys-color-surface-container-low: rgb(241 244 249);
+    --md-sys-color-surface-container: rgb(235 238 243);
+    --md-sys-color-surface-container-high: rgb(230 232 238);
+    --md-sys-color-surface-container-highest: rgb(224 226 232);
+  }
+/* 
+  @media (prefers-color-scheme: dark) {
+    :root {
+        --md-sys-color-primary: rgb(152 204 249);
+        --md-sys-color-surface-tint: rgb(152 204 249);
+        --md-sys-color-on-primary: rgb(0 51 80);
+        --md-sys-color-primary-container: rgb(4 75 113);
+        --md-sys-color-on-primary-container: rgb(204 229 255);
+        --md-sys-color-secondary: rgb(184 200 217);
+        --md-sys-color-on-secondary: rgb(35 50 63);
+        --md-sys-color-secondary-container: rgb(57 72 86);
+        --md-sys-color-on-secondary-container: rgb(212 228 246);
+        --md-sys-color-tertiary: rgb(209 191 231);
+        --md-sys-color-on-tertiary: rgb(55 42 74);
+        --md-sys-color-tertiary-container: rgb(78 65 98);
+        --md-sys-color-on-tertiary-container: rgb(236 220 255);
+        --md-sys-color-error: rgb(255 180 171);
+        --md-sys-color-on-error: rgb(105 0 5);
+        --md-sys-color-error-container: rgb(147 0 10);
+        --md-sys-color-on-error-container: rgb(255 218 214);
+        --md-sys-color-background: rgb(16 20 24);
+        --md-sys-color-on-background: rgb(224 226 232);
+        --md-sys-color-surface: rgb(16 20 24);
+        --md-sys-color-on-surface: rgb(224 226 232);
+        --md-sys-color-surface-variant: rgb(66 71 78);
+        --md-sys-color-on-surface-variant: rgb(194 199 206);
+        --md-sys-color-outline: rgb(140 145 152);
+        --md-sys-color-outline-variant: rgb(66 71 78);
+        --md-sys-color-shadow: rgb(0 0 0);
+        --md-sys-color-scrim: rgb(0 0 0);
+        --md-sys-color-inverse-surface: rgb(224 226 232);
+        --md-sys-color-inverse-on-surface: rgb(45 49 53);
+        --md-sys-color-inverse-primary: rgb(43 99 139);
+        --md-sys-color-primary-fixed: rgb(204 229 255);
+        --md-sys-color-on-primary-fixed: rgb(0 30 49);
+        --md-sys-color-primary-fixed-dim: rgb(152 204 249);
+        --md-sys-color-on-primary-fixed-variant: rgb(4 75 113);
+        --md-sys-color-secondary-fixed: rgb(212 228 246);
+        --md-sys-color-on-secondary-fixed: rgb(13 29 42);
+        --md-sys-color-secondary-fixed-dim: rgb(184 200 217);
+        --md-sys-color-on-secondary-fixed-variant: rgb(57 72 86);
+        --md-sys-color-tertiary-fixed: rgb(236 220 255);
+        --md-sys-color-on-tertiary-fixed: rgb(33 21 52);
+        --md-sys-color-tertiary-fixed-dim: rgb(209 191 231);
+        --md-sys-color-on-tertiary-fixed-variant: rgb(78 65 98);
+        --md-sys-color-surface-dim: rgb(16 20 24);
+        --md-sys-color-surface-bright: rgb(54 58 62);
+        --md-sys-color-surface-container-lowest: rgb(11 15 18);
+        --md-sys-color-surface-container-low: rgb(24 28 32);
+        --md-sys-color-surface-container: rgb(28 32 36);
+        --md-sys-color-surface-container-high: rgb(39 42 46);
+        --md-sys-color-surface-container-highest: rgb(49 53 57);
+      }
+  } */
+  
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--md-sys-color-background);
+    color: var(--md-sys-color-on-background);
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background-color: var(--md-sys-color-secondary);
+    color: var(--md-sys-color-on-secondary);
+    padding: 20px;
+    text-align: center;
+  }
+  .main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 40px 0;
+  }
+  .card {
+    background-color: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+    padding: 20px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: transform 0.6s;
+  }
+  .card:hover {
+    transform: scale(1.05);
+  }
+  .card h3 {
+    margin-bottom: 15px;
+    color: var(--md-sys-color-primary);
+  }
+  /* .card p {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 15px;
+  } */
+  .card a {
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  .card a:hover {
+    background-color: var(--md-sys-color-primary-fixed-dim);
+  }
+  footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: var(--md-sys-color-secondary);
+    color: var(--md-sys-color-on-secondary);
+  }
