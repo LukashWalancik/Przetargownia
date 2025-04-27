@@ -161,7 +161,7 @@
 
   
   main {
-    flex: 1; /* This makes the main content take up all available space */
+    flex: 1; 
     max-width: 1200px;
     margin: 2rem auto;
     padding: 0 1rem;
@@ -293,18 +293,14 @@
     height: 100%;
   }
 
-
-
-
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--md-sys-color-background);
     color: var(--md-sys-color-on-background);
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* This makes the body at least as tall as the viewport */
+    min-height: 100vh; 
     margin: 0;
-    /* line-height: 1.6; */
   }
 
   .main-container {
