@@ -9,11 +9,9 @@
 </head>
 
 <body>
-    <header>
-        <a href="/">
-            <h1>Przetargownia</h1>
-        </a>
-    </header>
+    <header class="header">
+        <a href="/"><h1>Przetargownia</h1></a>
+      </header>
 
     <main>
         <section class="tender-details">
@@ -33,23 +31,37 @@
             </p>
         </section>
         <% if (offers.length > 0) { %>
-            <section>
-                <h3>Złożone Ofert: </h3>
-                <% offers.forEach(offer => { %>
-                    <p><%= offer.name %></p>    
-                <% }) %>
-            </section>
+          <section class = "tender-details">
+            <h3>Złożone oferty:</h3>
+                <table>
+                  <tr>
+                    <th scope="col">Numer</th>
+                    <th scope="col">Instytucja zgłaszająca ofertę</th>
+                    <th scope="col">Wartość oferty</th>
+                    <th scope="col">Data zgłoszenia oferty</th>
+                    <th scope="col">Godzina zgłoszenia oferty</th>
+                  </tr>
+                  <% offers.forEach(offer => { %>
+                      <td><%= offer.id %></td>
+                      <td><%= offer.name %></td>
+                      <td><%= offer.offer_value %></td>
+                      <td><%= offer.submission_date.toLocaleDateString('pl-PL') %></td>
+                      <td><%= offer.submission_date.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' }) %></td>
+                    </tr>
+                  <% }) %>
+                </table>
+              </section>
         <% }else { %>
             <section>
-                <h3>Brak Ofert</h3>
+                <h3>Przetarg nie został rozstrzygnięty. Nie napłynęły żadne oferty mieszczące się w budżecie :(.</h3>
             </section>
           <% } %>
     </main>
 
 
-    <footer>
-        <p>Autor: <strong>Łukasz Walancik</strong></p>
-    </footer>
+    <footer class="footer">
+        <p>Autor: <strong>Łukasz Walancik</strong> | <a href="https://github.com/LukashWalancik">GitHub</a></p>
+      </footer>
 </body>
 
 </html>

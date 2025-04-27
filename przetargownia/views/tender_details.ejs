@@ -7,11 +7,11 @@
     <title>
         <%= title %>
     </title>
-    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/add_tender.css">
 </head>
 
 <body>
-    <header>
+    <header class = "header">
         <a href="/">
             <h1>Przetargownia</h1>
         </a>
@@ -19,18 +19,19 @@
 
     <main>
         <section class="tender-details">
-            <h3>Informacje o przetargu</h3>
+            <h3>Informacje o przetargu: <strong></strong></h3>
             <hr>
-            <p><strong>Instytucja:</strong>
+            <p><strong>Tytuł przetargu: </strong> <%= tender.title %></p>
+            <p><strong>Nazwa instytucji zgłaszającej przetarg:</strong>
                 <%= tender.institution %>
             </p>
-            <p><strong>Data rozpoczęcia:</strong>
+            <p><strong>Data rozpoczęcia przetargu:</strong>
                 <%= tender.start_date.toLocaleDateString('pl-PL') %> o <%= tender.start_date.toLocaleTimeString('pl-PL', { hour: '2-digit' , minute: '2-digit' }) %>
             </p>
-            <p><strong>Data zakończenia:</strong>
+            <p><strong>Data zakończenia przetargu:</strong>
                 <%= tender.deadline.toLocaleDateString('pl-PL') %> o <%= tender.deadline.toLocaleTimeString('pl-PL', { hour: '2-digit' , minute: '2-digit' }) %>
             </p>
-            <p><strong>Opis:</strong>
+            <p><strong>Opis pretargu:</strong>
                 <%= tender.description %>
             </p>
         </section>
@@ -40,9 +41,9 @@
     </main>
 
 
-    <footer>
-        <p>Autor: <strong>Łukasz Walancik</strong></p>
-    </footer>
+    <footer class="footer">
+        <p>Autor: <strong>Łukasz Walancik</strong> | <a href="https://github.com/LukashWalancik">GitHub</a></p>
+      </footer>
 </body>
 
 </html>

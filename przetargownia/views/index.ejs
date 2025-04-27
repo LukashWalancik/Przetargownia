@@ -8,9 +8,10 @@
   <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
-  <header>
+  <header class="header">
     <a href="/"><h1>Przetargownia</h1></a>
   </header>
+
   <% if (success == 1) { %>
     <div class="alert alert-success">
       Oferta została złożona pomyślnie!
@@ -19,12 +20,17 @@
     <div class="alert alert-danger">
       Wystąpił błąd podczas składania oferty.
     </div>
+  <% } else if (success == -3) { %>
+    <div class="alert alert-danger">
+      Przetarg zakończony. Nie można już składać ofert!
+    </div>
   <% } %>
+  <main>
   <div class="main-container">
     <div class="card">
-      <h3>Otwórz Przetargi</h3>
+      <h3>Lista otwartych przetargów</h3>
       <p>Sprawdź dostępne, trwające przetargi.</p>
-      <a href="/tenders">Przejdź do przetargów</a>
+      <a href="/tenders">Trwające przetargi</a>
     </div>
     <div class="card">
       <h3>Stwórz Przetarg</h3>
@@ -32,13 +38,13 @@
       <a href="/tenders/new">Stwórz przetarg</a>
     </div>
     <div class="card">
-      <h3>Zakończone Przetargi</h3>
+      <h3>Lista zakończonych przetargów</h3>
       <p>Przeglądaj zakończone przetargi.</p>
       <a href="/tenders/finished">Zakończone przetargi</a>
     </div>
   </div>
-
-  <footer>
+</main>
+  <footer class="footer">
     <p>Autor: <strong>Łukasz Walancik</strong> | <a href="https://github.com/LukashWalancik">GitHub</a></p>
   </footer>
 </body>

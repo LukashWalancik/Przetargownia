@@ -161,10 +161,11 @@
 
   
   main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 2rem;
+    flex: 1; /* This makes the main content take up all available space */
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    width: 100%;
   }
   
   .offer-main {
@@ -197,14 +198,28 @@
   }
 
   .tender-details {
-    background-color: var(--md-sys-color-primary-container);
-    color: var(--md-sys-color-on-primary-container);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    
+    background-color: var(--md-sys-color-surface);
     border-radius: 8px;
-    padding: 20px;
-    margin: 10px;
-    width: 45%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .tender-details h3 {
+    color: var(--md-sys-color-primary);
+    margin-top: 0;
+    font-size: 1.25rem;
+  }
+  
+  .tender-details p {
+    margin: 1rem 0;
+    line-height: 1.6;
+  }
+  
+  .tender-details strong {
+    color: var(--md-sys-color-on-surface-variant);
+    display: inline-block;
+    min-width: 120px;
   }
 
 
@@ -243,7 +258,7 @@
 
   table {
     border-collapse: collapse;
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     background-color: var(--md-sys-color-surface);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -281,19 +296,17 @@
 
 
 
-body {
-    font-family: Arial, sans-serif;
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--md-sys-color-background);
     color: var(--md-sys-color-on-background);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* This makes the body at least as tall as the viewport */
     margin: 0;
-    padding: 0;
+    /* line-height: 1.6; */
   }
-  header {
-    background-color: var(--md-sys-color-primary);
-    color: var(--md-sys-color-on-primary);
-    padding: 20px;
-    text-align: center;
-  }
+
   .main-container {
     display: flex;
     justify-content: center;
@@ -336,23 +349,39 @@ body {
   .card a:hover {
     background-color: var(--md-sys-color-primary-fixed-dim);
   }
-  footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+
+
+  .header {
     text-align: center;
-    background-color: var(--md-sys-color-secondary);
-    color: var(--md-sys-color-on-secondary);
-  }
-
-  header a {
+    background-color: var(--md-sys-color-primary);
     color: var(--md-sys-color-on-primary);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  .header a {
+    color: inherit;
     text-decoration: none;
   }
 
-  header a:visited {
-    color: var(--md-sys-color-on-primary);
+  .footer {
+    background-color: var(--md-sys-color-surface-container-high);
+    padding: 1rem 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--md-sys-color-on-surface-variant);
+  }
+  
+  .footer a {
+    color: var(--md-sys-color-primary);
     text-decoration: none;
   }
-
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }

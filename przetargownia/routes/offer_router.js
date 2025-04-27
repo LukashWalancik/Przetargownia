@@ -17,23 +17,35 @@ router.get('/new/:id', async (req, res) => {
     }
 });
 
-
 router.post('/create', async (req, res) => {
-  try {
+    try {
       const { name, offer_value, tenderId } = req.body;
-      submission_date = new Date();
-      const offer = await Offer.create({
-          name,
-          offer_value,
-          submission_date,
-          tenderId
+      const submission_date = new Date();
+  
+      const tender = await Tender.findByPk(tenderId);
+      if (!tender) {
+        console.warn('Próba złożenia oferty do nieistniejącego przetargu!');
+        return res.redirect('/?success=-4');
+      }
+  
+      const now = new Date();
+      if (tender.deadline <= now || tender.finished) {
+        console.warn('Próba złożenia oferty po zakończonym przetargu!');
+        return res.redirect(`/?success=-3`);
+      }
+  
+      await Offer.create({
+        name,
+        offer_value,
+        submission_date,
+        tenderId
       });
-
-      res.redirect('/?success=1');
-  } catch (err) {
+  
+      res.redirect(`/?success=1`);
+    } catch (err) {
       console.error(err);
-      res.redirect('/?success=-1')
-  }
-});
+      res.redirect('/?success=-1');
+    }
+  });
 
 module.exports = router;
