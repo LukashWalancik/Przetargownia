@@ -1,29 +1,48 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= title %></title>
-  <link rel="stylesheet" href="/styles/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/styles/style.css">
 </head>
+
 <body>
-  <header>
-    <a href="/"><h1>Przetargownia</h1></a>
-  </header>
+    <header>
+        <a href="/">
+            <h1>Przetargownia</h1>
+        </a>
+    </header>
 
-  <main>
-    <section class="tender-details">
-        <h3>Informacje o przetargu</h3>
-        <hr>
-        <p><strong>Instytucja:</strong> <%= tender.institution %></p>
-      <p><strong>Data rozpoczęcia:</strong> <%= tender.start_date.toLocaleDateString('pl-PL') %> o <%= tender.start_date.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' }) %></p>
-      <p><strong>Data zakończenia:</strong> <%= tender.deadline.toLocaleDateString('pl-PL') %> o <%= tender.deadline.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' }) %></p>
-      <p><strong>Opis:</strong> <%= tender.description %></p>
-    </section>
-  </main>
+    <main>
+        <section class="tender-details">
+            <h3>Informacje o przetargu</h3>
+            <hr>
+            <p><strong>Instytucja:</strong>
+                <%= tender.institution %>
+            </p>
+            <p><strong>Data rozpoczęcia:</strong>
+                <%= tender.start_date.toLocaleDateString('pl-PL') %> o <%= tender.start_date.toLocaleTimeString('pl-PL', { hour: '2-digit' , minute: '2-digit' }) %>
+            </p>
+            <p><strong>Data zakończenia:</strong>
+                <%= tender.deadline.toLocaleDateString('pl-PL') %> o <%= tender.deadline.toLocaleTimeString('pl-PL', { hour: '2-digit' , minute: '2-digit' }) %>
+            </p>
+            <p><strong>Opis:</strong>
+                <%= tender.description %>
+            </p>
+        </section>
+        <a href="/offers/new/<%= tender.id %>" class="offer-button">
+            Złóż ofertę
+          </a>
+    </main>
 
-  <footer>
-    <p>Autor: <strong>Łukasz Walancik</strong></p>
-  </footer>
+
+    <footer>
+        <p>Autor: <strong>Łukasz Walancik</strong></p>
+    </footer>
 </body>
+
 </html>
