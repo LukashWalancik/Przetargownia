@@ -1,31 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Przetargownia</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body>
-    <h1>Składaj ofertę na przetarg: <%= tender.title %></h1>
-<p><strong>Opis:</strong> <%= tender.description %></p>
-<p><strong>Budżet:</strong> <%= tender.budget %> PLN</p>
-<p><strong>Instytucja:</strong> <%= tender.institution %></p>
+    <header>
+        <a href="/">
+            <h1>Przetargownia</h1>
+        </a>
+    </header>
+    <main class="offer-main">
+        <section class="offer_tender-details">
+            <h3>Informacje o przetargu</h3>
+            <hr>
+            <p><strong>Instytucja:</strong>
+                <%= tender.institution %>
+            </p>
+            <p><strong>Data rozpoczęcia:</strong>
+                <%= tender.start_date.toLocaleDateString('pl-PL') %> o <%= tender.start_date.toLocaleTimeString('pl-PL', { hour: '2-digit' , minute: '2-digit' }) %>
+            </p>
+            <p><strong>Data zakończenia:</strong>
+                <%= tender.deadline.toLocaleDateString('pl-PL') %> o <%= tender.deadline.toLocaleTimeString('pl-PL', { hour: '2-digit' , minute: '2-digit' }) %>
+            </p>
+            <p><strong>Opis:</strong>
+                <%= tender.description %>
+            </p>
+        </section>
+        <section class="offer-details">
+            <h3>Twoja Oferta:</h3>
+            <form action="/offers/create" method="POST">
+                <input type="hidden" name="tenderId" value="<%= tender.id %>">
+                
+                <div>
+                    <label for="name">Nazwa oferty:</label>
+                    <input type="text" name="name" id="name" required>
+                </div>
+            
+                <div>
+                    <label for="offer_value">Wartość oferty:</label>
+                    <input type="number" name="offer_value" id="offer_value" required>
+                </div>
+            
+                <button type="submit" class="offer-button">Złóż ofertę</button>
+            </form>
+        </section>
+    </main>
 
-<!-- Formularz składania oferty -->
-<form action="/offers/create" method="POST">
-    <input type="hidden" name="tenderId" value="<%= tender.id %>">
-    
-    <div>
-        <label for="name">Nazwa oferty:</label>
-        <input type="text" name="name" id="name" required>
-    </div>
 
-    <div>
-        <label for="offer_value">Wartość oferty:</label>
-        <input type="number" name="offer_value" id="offer_value" required>
-    </div>
-
-    <button type="submit">Złóż ofertę</button>
-</form>
+<footer>
+    <p>Autor: <strong>Łukasz Walancik</strong> | <a href="https://github.com/LukashWalancik">GitHub</a></p>
+  </footer>
 </body>
 </html>

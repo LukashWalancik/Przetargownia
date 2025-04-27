@@ -103,6 +103,45 @@
         --md-sys-color-surface-container-highest: rgb(49 53 57);
       }
   } */
+
+
+
+  
+  .alert {
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+  
+  .alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+
+
+
+
+
+
+
+
+
+
   
   main {
     display: flex;
@@ -111,12 +150,44 @@
     margin-top: 2rem;
   }
   
+  .offer-main {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .offer_tender-details {
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    width: 45%;
+  }
+
+  .offer-details {
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    width: 45%;
+  }
+
   .tender-details {
     background-color: var(--md-sys-color-primary-container);
     color: var(--md-sys-color-on-primary-container);
-    padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
     border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    width: 45%;
   }
 
 
@@ -131,7 +202,24 @@
     margin-top: 1.5rem;
     transition: background-color 0.3s;
   }
+
+  .tender-details button {
+    display: inline-block;
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    transition: background-color 0.3s;
+  }
   
+  .tender-details button:hover {
+    background-color: var(--md-sys-color-primary-fixed-dim);
+    color: var(--md-sys-color-on-primary-fixed);
+  }
+
   .offer-button:hover {
     background-color: var(--md-sys-color-primary-fixed-dim);
     color: var(--md-sys-color-on-primary-fixed);

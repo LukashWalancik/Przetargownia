@@ -30,10 +30,11 @@ router.post('/create', async (req, res) => {
       });
 
       // Po zapisaniu oferty, przekierowujemy np. do listy ofert
-      res.redirect('/');
+      res.redirect('/?success=1');
   } catch (err) {
       console.error(err);
-      res.status(500).send('Błąd serwera.');
+      // res.status(500).send('Błąd serwera.');
+      res.redirect('/?success=-1')
   }
 });
 
