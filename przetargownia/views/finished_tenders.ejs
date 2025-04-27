@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Przetargownia</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+  <header>
+    <a href="/"><h1>Przetargownia</h1></a>
+  </header>
+
+
+
+  <main>
+    <% if (tenders.length > 0) { %>
+      <table>
+        <tr>
+          <th scope="col">Numer</th>
+          <th scope="col">Nazwa Przetargu</th>
+          <th scope="col">Instytucja Zgłaszająca</th>
+          <th scope="col">Data Zakończenia</th>
+          <th scope="col">Godzina Zakończnia</th>
+          <th scope="col">Data Rozpoczęcia</th>
+          <th scope="col">Godzina Rozpoczęcia</th>
+        </tr>
+        <% tenders.forEach(tender => { %>
+          <tr onclick="window.location.href='/tenders/<%= tender.id %>'">
+            <td><%= tender.id %></td>
+            <td><%= tender.title %></td>
+            <td><%= tender.institution %></td>
+            <td><%= tender.deadline.toLocaleDateString('pl-PL') %></td>
+            <td><%= tender.deadline.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' }) %></td>
+            <td><%= tender.start_date.toLocaleDateString('pl-PL') %></td>
+            <td><%= tender.start_date.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' }) %></td>
+          </tr>
+        <% }) %>
+      </table>
+    <% } else { %>
+      <p>Brak dostępnych przetargów.</p>
+    <% } %>
+  </main>
+  <footer>
+    <p>Autor: <strong>Łukasz Walancik</strong> | <a href="https://github.com/LukashWalancik">GitHub</a></p>
+  </footer>
+</body>
+</html>

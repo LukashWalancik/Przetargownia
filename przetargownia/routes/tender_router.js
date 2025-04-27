@@ -45,6 +45,20 @@ router.get('/', async (req, res) => {
     }
   });
 
+  router.get('/finished', async (req, res) => {
+    try {
+        await checkAndUpdateTenders();
+        const tenders = await Tender.findAll({
+          where: { finished: true }
+        });
+        res.render('finished_tenders', { title: 'Przetargi', tenders });
+      } catch (err) {
+        console.error(err);
+        res.status(500).send('Błąd serwera.');
+      }
+    });
+  
+
 router.get('/:id', async (req, res) => {
   try {
     const tender = await Tender.findByPk(req.params.id);
@@ -57,6 +71,7 @@ router.get('/:id', async (req, res) => {
     res.status(500).send('Błąd serwera.');
   }
 });
+
 
 
 router.post('/create', async (req, res) => {
